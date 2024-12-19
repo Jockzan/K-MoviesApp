@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
+import androidx.navigation.compose.rememberNavController
+import com.jcb.moviesapp.presentation.ui.navigation.AppNavHost
+import com.jcb.moviesapp.presentation.ui.theme.MoviesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,7 +15,9 @@ class MoviesActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Text("Hello Android")
+            MoviesAppTheme {
+                AppNavHost(navController = rememberNavController())
+            }
         }
     }
 }
